@@ -11,4 +11,12 @@ class MovieController extends Controller
         $movies = Movie::latest()->paginate(6);
         return view('homepage', compact('movies'));
     }
+
+     public function show($id, $slug)
+    {
+        $movie = Movie::findOrFail($id);
+        return view('detail', compact('movie'));
+
+    }
+
 }

@@ -8,12 +8,12 @@
             </div>
             <div class="col-md-8">
                 <div class="card-body">
-                    <h3 class="card-title">{{ $movie->title }}</h3>
+                    <h3 class="card-title">{{ $movie->titles }}</h3>
                     <p class="card-text">{{ $movie->synopsis }}</p>
                     <p><strong>Actors:</strong> {{ $movie->actors }}</p>
-                    <p><strong>Category:</strong> {{ $movie->category }}</p>
+                    <p><strong>Category:</strong> {{ $movie->category->category_name }}</p>
                     <p><strong>Year:</strong> {{ $movie->year }}</p>
-                    <a href="{{ url()->previous() }}" class="btn btn-success">Back</a>
+                    <a href="/" class="btn btn-success">Back</a>
                 </div>
             </div>
         </div>

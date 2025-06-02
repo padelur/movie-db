@@ -2,6 +2,14 @@
 
 
 @section('content')
+@if (session('success'))
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{ session('success') }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    
+    @endif
     <h1>Latest Movie</h1>
     <div class="row">
         @foreach ($movies as $movie)

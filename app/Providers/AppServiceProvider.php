@@ -2,9 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Pagination\CursorPaginator;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Pagination\CursorPaginator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,5 +23,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::useBootstrapFive();
+        //gate atau policy untuk delete
+        Gate::define('delete', function($user) {
+            return $user->role === 'admin';
+        });
     }
 }
